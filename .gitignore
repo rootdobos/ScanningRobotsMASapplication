@@ -6,5 +6,7 @@
 .vs/RegisterProject/v15/Server/sqlite3/storage.ide-wal
 ScanningRobotsMASapplication/bin/*
 ScanningRobotsMASapplication/obj/*
+MultiAgentSystem/bin/*
+MultiAgentSystem/obj/*
 packages/*
 .vs/*

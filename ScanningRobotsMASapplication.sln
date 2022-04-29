@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.1831
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScanningRobotsMASapplication", "ScanningRobotsMASapplication\ScanningRobotsMASapplication.csproj", "{30D311EE-3089-4D60-9883-AC2DFA303B3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiAgentSystem", "MultiAgentSystem\MultiAgentSystem.csproj", "{63A4453C-9D3C-4B74-92EC-7BC502C5506E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{30D311EE-3089-4D60-9883-AC2DFA303B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30D311EE-3089-4D60-9883-AC2DFA303B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30D311EE-3089-4D60-9883-AC2DFA303B3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63A4453C-9D3C-4B74-92EC-7BC502C5506E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63A4453C-9D3C-4B74-92EC-7BC502C5506E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63A4453C-9D3C-4B74-92EC-7BC502C5506E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63A4453C-9D3C-4B74-92EC-7BC502C5506E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
