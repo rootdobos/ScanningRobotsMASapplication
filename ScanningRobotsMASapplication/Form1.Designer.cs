@@ -192,6 +192,7 @@
             this.bt_draw.TabIndex = 0;
             this.bt_draw.Text = "Draw";
             this.bt_draw.UseVisualStyleBackColor = true;
+            this.bt_draw.Visible = false;
             // 
             // bt_Load
             // 
@@ -438,6 +439,7 @@
             this.bt_StopSimulation.TabIndex = 1;
             this.bt_StopSimulation.Text = "Stop";
             this.bt_StopSimulation.UseVisualStyleBackColor = true;
+            this.bt_StopSimulation.Click += new System.EventHandler(this.bt_StopSimulation_Click);
             // 
             // Form1
             // 

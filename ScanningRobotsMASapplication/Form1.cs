@@ -97,5 +97,11 @@ namespace ScanningRobotsMASapplication
             aTimer.AutoReset = true;
             aTimer.Enabled = true;
         }
+
+        private void bt_StopSimulation_Click(object sender, EventArgs e)
+        {
+           string log= _Simulation.StopSimulation();
+            rtb_Log.Text += log + "\n";
+        }
     }
 }

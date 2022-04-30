@@ -8,6 +8,6 @@ namespace MultiAgentSystem.Interfaces
 {
     public interface IBlackboard
     {
-
+        string GetStatistics();
     }
 }

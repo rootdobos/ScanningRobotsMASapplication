@@ -51,16 +51,36 @@ namespace MultiAgentSystem.Classes
         }
         public void StartSimulation()
         {
-            foreach(KeyValuePair<string,Thread> agentThread in AgentThreads)
+            if (!SimulationStarted)
             {
-                Interfaces.IAgent agent = Agents[agentThread.Key];
-                agentThread.Value.Start(agent);
+                foreach (KeyValuePair<string, Thread> agentThread in AgentThreads)
+                {
+                    Interfaces.IAgent agent = Agents[agentThread.Key];
+                    agentThread.Value.Start(agent);
+                }
+            }
+            else
+            {
+                foreach (KeyValuePair<string, Thread> agentThread in AgentThreads)
+                {
+                    Interfaces.IAgent agent = Agents[agentThread.Key];
+                    agent.StartAgent();
+                }
             }
             SimulationStarted = true;
+        }
+        public string StopSimulation()
+        {
+            foreach(string name in Agents.Keys)
+            {
+                StopAgent(name);
+            }
+            return _Blackboard.GetStatistics();
         }
         public void StopAgent(string agentName)
         {
             Agents[agentName].StopAgent();
+            
         }
         public void RemoveAgent(string agentName)
         {

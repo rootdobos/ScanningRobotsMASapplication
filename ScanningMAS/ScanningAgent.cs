@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using MultiAgentSystem.Classes;
 using MultiAgentSystem.Interfaces;
@@ -46,6 +47,7 @@ namespace ScanningMAS
             _Speed = speed;
             _Name = name;
             Position = new Point(startX, startY);
+            MRSE.Reset();
         }
         public event EventHandler<PerceptEventArgs> Percept;
         public event EventHandler<ActionEventArgs> Action;
@@ -68,20 +70,27 @@ namespace ScanningMAS
         }
         public void StartAgent()
         {
-           while(true)
+            MRSE.Set();
+            if(!_started)
+                MainLoop();
+        }
+        private void MainLoop()
+        {
+            _started = true;
+            while (true)
             {
-                EventHandler<PerceptEventArgs> handler = Percept ;
+                MRSE.WaitOne();
+                EventHandler<PerceptEventArgs> handler = Percept;
                 PerceptEventArgs args = new PerceptEventArgs();
-                args.Query = Utilities.Communication.ComposeSeeMessage(_Position.X, _Position.Y,_Radius);
+                args.Query = Utilities.Communication.ComposeSeeMessage(_Position.X, _Position.Y, _Radius);
                 handler?.Invoke(this, args);
 
                 System.Threading.Thread.Sleep(1000 / _Speed);
             }
         }
-
         public void StopAgent()
         {
-            throw new NotImplementedException();
+            MRSE.Reset();
         }
         public override string ToString()
         {
@@ -92,5 +101,7 @@ namespace ScanningMAS
         int _Radius;
         int _Speed;
         string _Name;
+        ManualResetEvent MRSE = new ManualResetEvent(true);
+        bool _started = false;
     }
 }

@@ -14,6 +14,11 @@ namespace ScanningMAS
             _Positions = new Dictionary<string, Point>();
             _Edges = new List<Point>();
             _Boundaries = new List<Point>();
+            _Steps = 0;
+        }
+        public string GetStatistics()
+        {
+            return string.Format("Agents{0} :::Steps Taken:{1}:::Edges Found:{2}",_Positions.Keys.Count, _Steps, _Edges.Count);
         }
         public void SetPosition(string name, Point position)
         {
@@ -23,6 +28,7 @@ namespace ScanningMAS
                     _Positions[name] = position;
                 else
                     _Positions.Add(name, position);
+                _Steps++;
             }
         }
         public void AddEdge(Point position)
@@ -81,6 +87,7 @@ namespace ScanningMAS
         Dictionary<string, Point> _Positions;
         List<Point> _Edges;
         List<Point> _Boundaries;
+        int _Steps;
         private  object _LockerPosition=new object();
         private  object _LockerEdges=new object();
         private  object _LockerBoundaries=new object();
