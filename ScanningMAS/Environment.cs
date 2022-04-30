@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MultiAgentSystem.Interfaces;
 using System.Drawing;
+using Utilities;
 namespace ScanningMAS
 {
     public class Environment : IEnvironment
@@ -24,7 +25,11 @@ namespace ScanningMAS
 
         public string GetInformation(string query)
         {
-            throw new NotImplementedException();
+            int x;
+            int y;
+            int radius;
+            Communication.DecomposeSeeMessage(query,out x, out y, out radius);
+            return ImageProcessing.GetVision(_Map, x, y, radius);
         }
         Bitmap _Map;
     }

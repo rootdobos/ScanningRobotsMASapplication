@@ -20,6 +20,18 @@ namespace MultiAgentSystem.Classes
                 _Blackboard = value;
             }
         }
+        public List<string> AgentList
+        {
+            get
+            {
+                List<string> output = new List<string>();
+                foreach (Interfaces.IAgent agent in Agents.Values)
+                {
+                    output.Add(agent.ToString());
+                }
+                return output;
+            }
+        }
         public Simulation(Interfaces.IBlackboard blackboard)
         {
             _Blackboard = blackboard;

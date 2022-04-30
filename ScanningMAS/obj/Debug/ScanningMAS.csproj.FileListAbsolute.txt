@@ -7,3 +7,5 @@ D:\egyetem\2 felev\multiagent\secondsoftware\ScanningRobotsMASapplication\Scanni
 D:\egyetem\2 felev\multiagent\secondsoftware\ScanningRobotsMASapplication\ScanningMAS\obj\Debug\ScanningMAS.csproj.CopyComplete
 D:\egyetem\2 felev\multiagent\secondsoftware\ScanningRobotsMASapplication\ScanningMAS\obj\Debug\ScanningMAS.dll
 D:\egyetem\2 felev\multiagent\secondsoftware\ScanningRobotsMASapplication\ScanningMAS\obj\Debug\ScanningMAS.pdb
+D:\egyetem\2 felev\multiagent\secondsoftware\ScanningRobotsMASapplication\ScanningMAS\bin\Debug\Utilities.dll
+D:\egyetem\2 felev\multiagent\secondsoftware\ScanningRobotsMASapplication\ScanningMAS\bin\Debug\Utilities.pdb

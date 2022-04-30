@@ -8,5 +8,9 @@ ScanningRobotsMASapplication/bin/*
 ScanningRobotsMASapplication/obj/*
 MultiAgentSystem/bin/*
 MultiAgentSystem/obj/*
+ScanningMAS/bin/*
+ScanningMAS/obj/*
+Utilities/bin/*
+Utilities/obj/*
 packages/*
 .vs/*

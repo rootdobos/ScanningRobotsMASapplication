@@ -31,6 +31,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.MainCanvas = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.rtb_Agents = new System.Windows.Forms.RichTextBox();
+            this.rtb_Log = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.bt_draw = new System.Windows.Forms.Button();
@@ -51,9 +54,14 @@
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.bt_StartSimulation = new System.Windows.Forms.Button();
             this.bt_StopSimulation = new System.Windows.Forms.Button();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tb_PositionX = new System.Windows.Forms.TextBox();
+            this.tb_PositionY = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainCanvas)).BeginInit();
+            this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -61,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_map)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            this.tableLayoutPanel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -83,6 +92,7 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.MainCanvas, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel9, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(203, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -100,6 +110,41 @@
             this.MainCanvas.Size = new System.Drawing.Size(905, 433);
             this.MainCanvas.TabIndex = 0;
             this.MainCanvas.TabStop = false;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 2;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.Controls.Add(this.rtb_Agents, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.rtb_Log, 1, 0);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 442);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 1;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(905, 144);
+            this.tableLayoutPanel9.TabIndex = 1;
+            // 
+            // rtb_Agents
+            // 
+            this.rtb_Agents.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtb_Agents.Location = new System.Drawing.Point(3, 3);
+            this.rtb_Agents.Name = "rtb_Agents";
+            this.rtb_Agents.ReadOnly = true;
+            this.rtb_Agents.Size = new System.Drawing.Size(194, 138);
+            this.rtb_Agents.TabIndex = 0;
+            this.rtb_Agents.Text = "";
+            // 
+            // rtb_Log
+            // 
+            this.rtb_Log.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtb_Log.Location = new System.Drawing.Point(203, 3);
+            this.rtb_Log.Name = "rtb_Log";
+            this.rtb_Log.ReadOnly = true;
+            this.rtb_Log.Size = new System.Drawing.Size(699, 138);
+            this.rtb_Log.TabIndex = 1;
+            this.rtb_Log.Text = "";
             // 
             // tableLayoutPanel3
             // 
@@ -196,11 +241,14 @@
             this.tableLayoutPanel6.Controls.Add(this.tb_visionRadius, 1, 1);
             this.tableLayoutPanel6.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel6.Controls.Add(this.tb_speed, 1, 2);
-            this.tableLayoutPanel6.Controls.Add(this.bt_addAgent, 1, 3);
+            this.tableLayoutPanel6.Controls.Add(this.bt_addAgent, 1, 4);
+            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel10, 1, 3);
+            this.tableLayoutPanel6.Controls.Add(this.label6, 0, 3);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 43);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 4;
+            this.tableLayoutPanel6.RowCount = 5;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -267,9 +315,9 @@
             // 
             // bt_addAgent
             // 
-            this.bt_addAgent.Location = new System.Drawing.Point(94, 93);
+            this.bt_addAgent.Location = new System.Drawing.Point(94, 123);
             this.bt_addAgent.Name = "bt_addAgent";
-            this.bt_addAgent.Size = new System.Drawing.Size(75, 23);
+            this.bt_addAgent.Size = new System.Drawing.Size(75, 22);
             this.bt_addAgent.TabIndex = 6;
             this.bt_addAgent.Text = "Add";
             this.bt_addAgent.UseVisualStyleBackColor = true;
@@ -346,6 +394,48 @@
             this.bt_StopSimulation.Text = "Stop";
             this.bt_StopSimulation.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.ColumnCount = 2;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Controls.Add(this.tb_PositionX, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.tb_PositionY, 1, 0);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(94, 93);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 1;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(85, 24);
+            this.tableLayoutPanel10.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Location = new System.Drawing.Point(3, 90);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 30);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Position:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tb_PositionX
+            // 
+            this.tb_PositionX.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_PositionX.Location = new System.Drawing.Point(3, 3);
+            this.tb_PositionX.Name = "tb_PositionX";
+            this.tb_PositionX.Size = new System.Drawing.Size(36, 20);
+            this.tb_PositionX.TabIndex = 0;
+            // 
+            // tb_PositionY
+            // 
+            this.tb_PositionY.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_PositionY.Location = new System.Drawing.Point(45, 3);
+            this.tb_PositionY.Name = "tb_PositionY";
+            this.tb_PositionY.Size = new System.Drawing.Size(37, 20);
+            this.tb_PositionY.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,6 +448,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainCanvas)).EndInit();
+            this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -368,6 +459,8 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -397,6 +490,13 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Button bt_StartSimulation;
         private System.Windows.Forms.Button bt_StopSimulation;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.RichTextBox rtb_Agents;
+        private System.Windows.Forms.RichTextBox rtb_Log;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.TextBox tb_PositionX;
+        private System.Windows.Forms.TextBox tb_PositionY;
+        private System.Windows.Forms.Label label6;
     }
 }
 

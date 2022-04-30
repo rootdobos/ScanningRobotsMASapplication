@@ -29,10 +29,20 @@ namespace ScanningRobotsMASapplication
 
         private void bt_addAgent_Click(object sender, EventArgs e)
         {
-            ScanningAgent agent = new ScanningAgent(int.Parse( tb_visionRadius.Text), int.Parse(tb_speed.Text));
+            ScanningAgent agent = new ScanningAgent(tb_agentName.Text,int.Parse( tb_visionRadius.Text), int.Parse(tb_speed.Text), int.Parse(tb_PositionX.Text), int.Parse(tb_PositionY.Text));
             _Simulation.AddAgent(tb_agentName.Text, agent);
+            SetAgentTextBox();
         }
-
+        private void SetAgentTextBox()
+        {
+            List<string> agents = _Simulation.AgentList;
+            string txt = "";
+            foreach(string agent in agents)
+            {
+                txt += agent + "\n";
+            }
+            rtb_Agents.Text = txt;
+        }
 
         private void bt_Load_Click(object sender, EventArgs e)
         {

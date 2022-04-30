@@ -14,5 +14,6 @@ namespace MultiAgentSystem.Interfaces
         event EventHandler<Classes.PerceptEventArgs> Percept;
         event EventHandler<Classes.ActionEventArgs> Action;
         void ProcessPerception(string perception);
+
     }
 }
