@@ -20,18 +20,73 @@ namespace ScanningMAS
         public void execute(IAgent agent, string perception)
         {
             Point agentPosition = ((ScanningAgent)agent).Position;
-            Random random = new Random();
-            int x=random.Next(3);
-            int y = random.Next(3);
-            Point newPos = new Point();
-                newPos.X = agentPosition.X + (x - 1);
-                newPos.Y = agentPosition.Y + (y - 1);
+
+            Point newPos = CalculateDirection(agentPosition);
+
             if (!ImageProcessing.IsObject(newPos, _edgePositions, _boundaryPosition))
                 ((ScanningAgent)agent).Position = newPos;
+        }
 
+        private Point CalculateDirection(Point agentPosition)
+        {
+            double boundaryDirX = 0;
+            double boundaryDirY = 0;
+            foreach(Point p in _boundaryPosition)
+            {
+               double distance= EucledianDistance(p, agentPosition);
+                Point dir = Direction(agentPosition, p);
+                boundaryDirX += distance * dir.X;
+                boundaryDirY += distance * dir.Y;
+            }
+            Random random = new Random();
+            int x = random.Next(randomness);
+            int y = random.Next(randomness);
+            Point newPos = new Point();
+            if(x==randomness-1)
+                newPos.X = agentPosition.X + GetSign(boundaryDirX);
+            else
+                newPos.X = agentPosition.X - GetSign(boundaryDirX);
+            if (y == randomness - 1)
+                newPos.Y = agentPosition.Y + GetSign(boundaryDirY);
+            else
+                newPos.Y = agentPosition.Y - GetSign(boundaryDirY);
+            //newPos.X = agentPosition.X + (x - 1);
+            //newPos.Y = agentPosition.Y + (y - 1);
+            return newPos;
+        }
+        private double EucledianDistance(Point A, Point B)
+        {
+            return Math.Sqrt(Math.Pow((double)A.X - B.X, 2) + Math.Pow((double)A.X - B.X, 2));
+        }
+        private Point Direction(Point A, Point B)
+        {
+            Point output = new Point();
+            if (A.X > B.X)
+                output.X = 1;
+            else if (A.X < B.X)
+                output.X = -1;
+            else 
+                output.X =0;
+
+            if (A.Y > B.Y)
+                output.Y = 1;
+            else if (A.Y < B.Y)
+                output.Y = -1;
+            else
+                output.Y = 0;
+            return output;
+        }
+        private int GetSign(double number)
+        {
+            if (number >= 0)
+                return 1;
+            else
+                return -1;
         }
         List<Point> _agentPositions;
         List<Point> _edgePositions;
         List<Point> _boundaryPosition;
+        double factor = 1000;
+        int randomness = 5;
     }
 }

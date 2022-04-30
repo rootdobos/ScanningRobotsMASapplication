@@ -34,7 +34,7 @@ namespace ScanningMAS
         }
         public void AddBoundary(Point position)
         {
-            lock (_LockerEdges)
+            lock (_LockerBoundaries)
             {
                 _Boundaries.Add(position);
             }

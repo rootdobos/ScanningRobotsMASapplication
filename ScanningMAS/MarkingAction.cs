@@ -22,16 +22,24 @@ namespace ScanningMAS
                 if (splitted[0] == "BOUNDARY")
                 {
                     string[] coordinates = splitted[1].Split(',');
-                    string message = Communication.ComposeMarkPixel(int.Parse(coordinates[0]), int.Parse(coordinates[1]), "red");
-                    ((Blackboard)agent.Blackboard).AddBoundary(new Point(int.Parse(coordinates[0]), int.Parse(coordinates[1])));
-                    ((ScanningAgent)agent).InvokeAction(message);
+                    Point p = new Point(int.Parse(coordinates[0]), int.Parse(coordinates[1]));
+                    if(Utilities.ImageProcessing.CheckPoint(((Blackboard)agent.Blackboard).GetBoundaries(),p))
+                    {
+                        string message = Communication.ComposeMarkPixel(int.Parse(coordinates[0]), int.Parse(coordinates[1]), "red");
+                        ((Blackboard)agent.Blackboard).AddBoundary(p);
+                        ((ScanningAgent)agent).InvokeAction(message);
+                    }
                 }
                 else if (splitted[0] == "EDGE")
                 {
                     string[] coordinates = splitted[1].Split(',');
-                    string message = Communication.ComposeMarkPixel(int.Parse(coordinates[0]), int.Parse(coordinates[1]), "green");
-                    ((Blackboard)agent.Blackboard).AddEdge(new Point(int.Parse(coordinates[0]), int.Parse(coordinates[1])));
-                    ((ScanningAgent)agent).InvokeAction(message);
+                    Point p = new Point(int.Parse(coordinates[0]), int.Parse(coordinates[1]));
+                    if (Utilities.ImageProcessing.CheckPoint(((Blackboard)agent.Blackboard).GetEdges(), p))
+                    {
+                        string message = Communication.ComposeMarkPixel(int.Parse(coordinates[0]), int.Parse(coordinates[1]), "green");
+                        ((Blackboard)agent.Blackboard).AddEdge(p);
+                        ((ScanningAgent)agent).InvokeAction(message);
+                    }
                 }
                 else if(splitted[0] == "Mark")
                 {

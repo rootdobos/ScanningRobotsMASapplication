@@ -25,24 +25,47 @@ namespace ScanningMAS
                 return _Map;
             }
         }
+        public List<string> NextOperation
+        {
+            get
+            {
+                List<string> output=new List<string>();
+                lock (_locker)
+                {
+                    while (_Operations.Count>0)
+                    {
+                        output.Add(_Operations.Dequeue());
+                    }
+                }
+                return output;
+            }
+        }
         public Environment(string path)
         {
             _Map = new Bitmap(path);
             _MarkedPoints = new Bitmap(_Map.Width, _Map.Height);
+            _MapContainer = new BitmapContainer(_Map);
         }
         public Environment(Bitmap map)
         {
             _Map = map;
             _MarkedPoints = new Bitmap(_Map.Width, _Map.Height);
+            _MapContainer = new BitmapContainer(_Map);
         }
         public string ChangeEnvironment(string action)
+        {
+            lock (_locker)
+            {
+                _Operations.Enqueue(action);
+            }
+            return string.Empty;
+        }
+        public  void ProcessOperation(string action)
         {
             int x;
             int y;
             string color;
             string[] message = action.Split(':');
-            lock (_locker)
-            {
                 try
                 {
 
@@ -62,28 +85,29 @@ namespace ScanningMAS
                         _MarkedPoints.SetPixel(x, y, Color.Transparent);
                     }
                 }
-                catch
+                catch (Exception e)
                 {
                     ;
                 }
-            }
             EventHandler<RefreshEventArgs> handler = Refresh;
             RefreshEventArgs args = new RefreshEventArgs();
             args.Locker = _locker;
             handler?.Invoke(this, args);
-            return string.Empty;
         }
-
         public string GetInformation(string query)
         {
             int x;
             int y;
             int radius;
             Communication.DecomposeSeeMessage(query,out x, out y, out radius);
-            return ImageProcessing.GetVision(_Map, x, y, radius);
+            string output;
+                output = ImageProcessing.GetVision(_MapContainer.ToBitmap(), x, y, radius);
+            return output;
         }
         Bitmap _Map;
+        Utilities.BitmapContainer _MapContainer;
         Bitmap _MarkedPoints;
+        Queue<string> _Operations= new Queue<string>();
         object _locker = new object();
     }
 }

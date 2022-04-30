@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using MultiAgentSystem.Classes;
 using ScanningMAS;
@@ -22,6 +23,8 @@ namespace ScanningRobotsMASapplication
         }
         Simulation _Simulation;
         ScanningMAS.Environment _Environment;
+        private static System.Timers.Timer aTimer;
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -70,7 +73,14 @@ namespace ScanningRobotsMASapplication
             pb_map.Refresh();
             _Environment.Refresh += RefreshScreen;
         }
-
+        private void UpdateWindow(Object source, ElapsedEventArgs e)
+        {
+            foreach(string operation in _Environment.NextOperation)
+            {
+                _Environment.ProcessOperation(operation);
+            }
+            MainCanvas.Invalidate();
+        }
         private void RefreshScreen(object sender,ScanningMAS.RefreshEventArgs e)
         {
             lock(e.Locker)
@@ -81,6 +91,11 @@ namespace ScanningRobotsMASapplication
         private void bt_StartSimulation_Click(object sender, EventArgs e)
         {
             _Simulation.StartSimulation();
+            aTimer = new System.Timers.Timer(10);
+            // Hook up the Elapsed event for the timer. 
+            aTimer.Elapsed += UpdateWindow;
+            aTimer.AutoReset = true;
+            aTimer.Enabled = true;
         }
     }
 }

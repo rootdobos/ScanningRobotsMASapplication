@@ -19,9 +19,9 @@ namespace ScanningMAS
             }
             set
             {
-                _Blackboard.SetPosition(_Name, _Position);
                string message= Communication.ComposeDeletePosition(_Position.X, _Position.Y);
                 _Position = value;
+                _Blackboard.SetPosition(_Name, _Position);
                 InvokeAction(message);
                 MarkingAction mark = new MarkingAction();
                 string markPosition = Communication.ComposeMarkPixel(_Position.X, _Position.Y, "blue");
