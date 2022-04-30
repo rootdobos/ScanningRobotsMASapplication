@@ -62,6 +62,14 @@ namespace Utilities
                 return true;
             if (image.GetPixel(x , y+1).R > 100)
                 return true;
+            if (image.GetPixel(x - 1, y-1).R > 100)
+                return true;
+            if (image.GetPixel(x + 1, y+1).R > 100)
+                return true;
+            if (image.GetPixel(x +1, y - 1).R > 100)
+                return true;
+            if (image.GetPixel(x- 1, y + 1).R > 100)
+                return true;
             return false;
         }
         public static bool IsObject(Point point, List<Point> edges, List<Point> boundaries)

@@ -33,7 +33,14 @@ namespace ScanningMAS
             double boundaryDirY = 0;
             foreach(Point p in _boundaryPosition)
             {
-               double distance= EucledianDistance(p, agentPosition);
+               double distance=factor* EucledianDistance(p, agentPosition);
+                Point dir = Direction(agentPosition, p);
+                boundaryDirX += distance * dir.X;
+                boundaryDirY += distance * dir.Y;
+            }
+            foreach (Point p in _edgePositions)
+            {
+                double distance = factorEdge * EucledianDistance(p, agentPosition);
                 Point dir = Direction(agentPosition, p);
                 boundaryDirX += distance * dir.X;
                 boundaryDirY += distance * dir.Y;
@@ -42,11 +49,11 @@ namespace ScanningMAS
             int x = random.Next(randomness);
             int y = random.Next(randomness);
             Point newPos = new Point();
-            if(x==randomness-1)
+            if(x>=randomness-2)
                 newPos.X = agentPosition.X + GetSign(boundaryDirX);
             else
                 newPos.X = agentPosition.X - GetSign(boundaryDirX);
-            if (y == randomness - 1)
+            if (y >= randomness - 2)
                 newPos.Y = agentPosition.Y + GetSign(boundaryDirY);
             else
                 newPos.Y = agentPosition.Y - GetSign(boundaryDirY);
@@ -56,7 +63,7 @@ namespace ScanningMAS
         }
         private double EucledianDistance(Point A, Point B)
         {
-            return Math.Sqrt(Math.Pow((double)A.X - B.X, 2) + Math.Pow((double)A.X - B.X, 2));
+            return Math.Sqrt(Math.Pow((double)A.X - B.X, 2) + Math.Pow((double)A.Y - B.Y, 2));
         }
         private Point Direction(Point A, Point B)
         {
@@ -86,7 +93,8 @@ namespace ScanningMAS
         List<Point> _agentPositions;
         List<Point> _edgePositions;
         List<Point> _boundaryPosition;
-        double factor = 1000;
-        int randomness = 5;
+        double factor = 1;
+        double factorEdge = 1 ;
+        int randomness =6;
     }
 }
