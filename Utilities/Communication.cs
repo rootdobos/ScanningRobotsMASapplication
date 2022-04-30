@@ -14,10 +14,20 @@ namespace Utilities
         }
         public static void DecomposeSeeMessage(string message,out int x, out int y, out int radius)
         {
-            string[] components= message.Split(':');
+            string[] components= message.Split('-');
             x = int.Parse(components[0].Split(':')[1]);
             y = int.Parse(components[1].Split(':')[1]);
             radius = int.Parse(components[2].Split(':')[1]);
+        }
+        public static string ComposeMarkPixel(int x, int y)
+        {
+            return String.Format("Mark:{0},{1}", x, y);
+        }
+        public static void DecomposeMarkPixel(string message, out int x, out int y)
+        {
+            string[] components = message.Split(':');
+            x = int.Parse(components[0].Split(',')[0]);
+            y = int.Parse(components[0].Split(',')[1]);
         }
     }
 }

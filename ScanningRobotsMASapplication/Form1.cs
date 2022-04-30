@@ -21,7 +21,7 @@ namespace ScanningRobotsMASapplication
             _Simulation = new Simulation(blackboard);
         }
         Simulation _Simulation;
-        Bitmap _MapImage;
+        ScanningMAS.Environment _Environment;
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -56,7 +56,18 @@ namespace ScanningRobotsMASapplication
         }
         private void LoadIamge(string path)
         {
-            _MapImage = new Bitmap(path);
+            Bitmap map = new Bitmap(path);
+            _Environment = new ScanningMAS.Environment(map);
+            MainCanvas.Image = _Environment.MarkedPoint;
+            pb_map.Image = _Environment.Map;
+            MainCanvas.Image.Save(@"C:\alma.png");
+            MainCanvas.Visible = true;
+            pb_map.Visible = true;
+
+            MainCanvas.Invalidate();
+            pb_map.Invalidate();
+            MainCanvas.Refresh();
+            pb_map.Refresh();
         }
     }
 }

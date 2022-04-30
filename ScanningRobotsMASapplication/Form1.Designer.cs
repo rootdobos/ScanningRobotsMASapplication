@@ -48,16 +48,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tb_speed = new System.Windows.Forms.TextBox();
             this.bt_addAgent = new System.Windows.Forms.Button();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.tb_PositionX = new System.Windows.Forms.TextBox();
+            this.tb_PositionY = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.pb_map = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.bt_StartSimulation = new System.Windows.Forms.Button();
             this.bt_StopSimulation = new System.Windows.Forms.Button();
-            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tb_PositionX = new System.Windows.Forms.TextBox();
-            this.tb_PositionY = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainCanvas)).BeginInit();
@@ -66,10 +66,10 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_map)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
-            this.tableLayoutPanel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -108,6 +108,7 @@
             this.MainCanvas.Location = new System.Drawing.Point(3, 3);
             this.MainCanvas.Name = "MainCanvas";
             this.MainCanvas.Size = new System.Drawing.Size(905, 433);
+            this.MainCanvas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.MainCanvas.TabIndex = 0;
             this.MainCanvas.TabStop = false;
             // 
@@ -323,12 +324,55 @@
             this.bt_addAgent.UseVisualStyleBackColor = true;
             this.bt_addAgent.Click += new System.EventHandler(this.bt_addAgent_Click);
             // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.ColumnCount = 2;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Controls.Add(this.tb_PositionX, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.tb_PositionY, 1, 0);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(94, 93);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 1;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(85, 24);
+            this.tableLayoutPanel10.TabIndex = 7;
+            // 
+            // tb_PositionX
+            // 
+            this.tb_PositionX.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_PositionX.Location = new System.Drawing.Point(3, 3);
+            this.tb_PositionX.Name = "tb_PositionX";
+            this.tb_PositionX.Size = new System.Drawing.Size(36, 20);
+            this.tb_PositionX.TabIndex = 0;
+            // 
+            // tb_PositionY
+            // 
+            this.tb_PositionY.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_PositionY.Location = new System.Drawing.Point(45, 3);
+            this.tb_PositionY.Name = "tb_PositionY";
+            this.tb_PositionY.Size = new System.Drawing.Size(37, 20);
+            this.tb_PositionY.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Location = new System.Drawing.Point(3, 90);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 30);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Position:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // pb_map
             // 
             this.pb_map.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb_map.Location = new System.Drawing.Point(3, 413);
             this.pb_map.Name = "pb_map";
             this.pb_map.Size = new System.Drawing.Size(188, 194);
+            this.pb_map.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_map.TabIndex = 2;
             this.pb_map.TabStop = false;
             // 
@@ -394,48 +438,6 @@
             this.bt_StopSimulation.Text = "Stop";
             this.bt_StopSimulation.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel10
-            // 
-            this.tableLayoutPanel10.ColumnCount = 2;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Controls.Add(this.tb_PositionX, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.tb_PositionY, 1, 0);
-            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(94, 93);
-            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 1;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(85, 24);
-            this.tableLayoutPanel10.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Location = new System.Drawing.Point(3, 90);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 30);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Position:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tb_PositionX
-            // 
-            this.tb_PositionX.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_PositionX.Location = new System.Drawing.Point(3, 3);
-            this.tb_PositionX.Name = "tb_PositionX";
-            this.tb_PositionX.Size = new System.Drawing.Size(36, 20);
-            this.tb_PositionX.TabIndex = 0;
-            // 
-            // tb_PositionY
-            // 
-            this.tb_PositionY.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_PositionY.Location = new System.Drawing.Point(45, 3);
-            this.tb_PositionY.Name = "tb_PositionY";
-            this.tb_PositionY.Size = new System.Drawing.Size(37, 20);
-            this.tb_PositionY.TabIndex = 1;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,12 +457,12 @@
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
+            this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_map)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
-            this.tableLayoutPanel10.ResumeLayout(false);
-            this.tableLayoutPanel10.PerformLayout();
             this.ResumeLayout(false);
 
         }

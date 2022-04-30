@@ -14,3 +14,4 @@ Utilities/bin/*
 Utilities/obj/*
 packages/*
 .vs/*
+*.pdb

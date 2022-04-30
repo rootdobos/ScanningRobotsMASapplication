@@ -9,6 +9,6 @@ namespace MultiAgentSystem.Interfaces
     public interface IEnvironment
     {
         string GetInformation(string query);
-        string ChangeEnvironment(string query);
+        string ChangeEnvironment(string action);
     }
 }
