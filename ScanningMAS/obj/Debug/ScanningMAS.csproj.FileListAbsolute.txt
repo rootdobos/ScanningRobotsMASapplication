@@ -1,0 +1,9 @@
+D:\egyetem\2 felev\multiagent\secondsoftware\ScanningRobotsMASapplication\ScanningMAS\bin\Debug\ScanningMAS.dll
+D:\egyetem\2 felev\multiagent\secondsoftware\ScanningRobotsMASapplication\ScanningMAS\bin\Debug\ScanningMAS.pdb
+D:\egyetem\2 felev\multiagent\secondsoftware\ScanningRobotsMASapplication\ScanningMAS\bin\Debug\MultiAgentSystem.dll
+D:\egyetem\2 felev\multiagent\secondsoftware\ScanningRobotsMASapplication\ScanningMAS\bin\Debug\MultiAgentSystem.pdb
+D:\egyetem\2 felev\multiagent\secondsoftware\ScanningRobotsMASapplication\ScanningMAS\obj\Debug\ScanningMAS.csprojAssemblyReference.cache
+D:\egyetem\2 felev\multiagent\secondsoftware\ScanningRobotsMASapplication\ScanningMAS\obj\Debug\ScanningMAS.csproj.CoreCompileInputs.cache
+D:\egyetem\2 felev\multiagent\secondsoftware\ScanningRobotsMASapplication\ScanningMAS\obj\Debug\ScanningMAS.csproj.CopyComplete
+D:\egyetem\2 felev\multiagent\secondsoftware\ScanningRobotsMASapplication\ScanningMAS\obj\Debug\ScanningMAS.dll
+D:\egyetem\2 felev\multiagent\secondsoftware\ScanningRobotsMASapplication\ScanningMAS\obj\Debug\ScanningMAS.pdb

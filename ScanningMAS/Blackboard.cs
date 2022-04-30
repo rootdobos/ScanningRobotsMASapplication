@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace MultiAgentSystem.Interfaces
+using MultiAgentSystem.Interfaces;
+namespace ScanningMAS
 {
-    public interface IBlackboard
+    public class Blackboard:IBlackboard
     {
 
     }

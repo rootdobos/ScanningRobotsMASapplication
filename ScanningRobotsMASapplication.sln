@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScanningRobotsMASapplicatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiAgentSystem", "MultiAgentSystem\MultiAgentSystem.csproj", "{63A4453C-9D3C-4B74-92EC-7BC502C5506E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScanningMAS", "ScanningMAS\ScanningMAS.csproj", "{A6C9727F-95DF-4BF3-8638-7EFA02135955}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{63A4453C-9D3C-4B74-92EC-7BC502C5506E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63A4453C-9D3C-4B74-92EC-7BC502C5506E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63A4453C-9D3C-4B74-92EC-7BC502C5506E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6C9727F-95DF-4BF3-8638-7EFA02135955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6C9727F-95DF-4BF3-8638-7EFA02135955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6C9727F-95DF-4BF3-8638-7EFA02135955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6C9727F-95DF-4BF3-8638-7EFA02135955}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
