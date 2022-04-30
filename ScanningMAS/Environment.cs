@@ -38,8 +38,19 @@ namespace ScanningMAS
         {
             int x;
             int y;
-            Communication.DecomposeMarkPixel(action, out x, out y);
-            _MarkedPoints.SetPixel(x, y, Color.Green);
+            string color;
+            string[] message = action.Split(':');
+            if (message[0] == "Mark")
+            {
+                Communication.DecomposeMarkPixel(action, out x, out y, out color);
+                _MarkedPoints.SetPixel(x, y, Color.Green);
+            }
+            else
+            {
+                Communication.DecomposeDeletePosition(action, out x, out y);
+                _MarkedPoints.SetPixel( x, y, Color.Transparent);
+            }
+
             return string.Empty;
         }
 
