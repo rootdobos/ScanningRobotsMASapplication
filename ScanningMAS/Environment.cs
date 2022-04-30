@@ -10,6 +10,7 @@ namespace ScanningMAS
 {
     public class Environment : IEnvironment
     {
+        public event EventHandler<RefreshEventArgs> Refresh;
         public Bitmap MarkedPoint
         {
             get
@@ -40,17 +41,36 @@ namespace ScanningMAS
             int y;
             string color;
             string[] message = action.Split(':');
-            if (message[0] == "Mark")
+            lock (_locker)
             {
-                Communication.DecomposeMarkPixel(action, out x, out y, out color);
-                _MarkedPoints.SetPixel(x, y, Color.Green);
-            }
-            else
-            {
-                Communication.DecomposeDeletePosition(action, out x, out y);
-                _MarkedPoints.SetPixel( x, y, Color.Transparent);
-            }
+                try
+                {
 
+                    if (message[0] == "Mark")
+                    {
+                        Communication.DecomposeMarkPixel(action, out x, out y, out color);
+                        if (color == "red")
+                            _MarkedPoints.SetPixel(x, y, Color.Red);
+                        else if (color == "green")
+                            _MarkedPoints.SetPixel(x, y, Color.Green);
+                        else if (color == "blue")
+                            _MarkedPoints.SetPixel(x, y, Color.Blue);
+                    }
+                    else
+                    {
+                        Communication.DecomposeDeletePosition(action, out x, out y);
+                        _MarkedPoints.SetPixel(x, y, Color.Transparent);
+                    }
+                }
+                catch
+                {
+                    ;
+                }
+            }
+            EventHandler<RefreshEventArgs> handler = Refresh;
+            RefreshEventArgs args = new RefreshEventArgs();
+            args.Locker = _locker;
+            handler?.Invoke(this, args);
             return string.Empty;
         }
 
@@ -64,5 +84,6 @@ namespace ScanningMAS
         }
         Bitmap _Map;
         Bitmap _MarkedPoints;
+        object _locker = new object();
     }
 }

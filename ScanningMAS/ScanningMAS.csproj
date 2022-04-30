@@ -44,8 +44,11 @@
   <ItemGroup>
     <Compile Include="Blackboard.cs" />
     <Compile Include="Environment.cs" />
+    <Compile Include="MarkingAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RefreshEventArgs.cs" />
     <Compile Include="ScanningAgent.cs" />
+    <Compile Include="SteppingAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MultiAgentSystem\MultiAgentSystem.csproj">

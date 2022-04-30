@@ -29,7 +29,7 @@ namespace ScanningRobotsMASapplication
 
         private void bt_addAgent_Click(object sender, EventArgs e)
         {
-            ScanningAgent agent = new ScanningAgent(tb_agentName.Text,int.Parse( tb_visionRadius.Text), int.Parse(tb_speed.Text), int.Parse(tb_PositionX.Text), int.Parse(tb_PositionY.Text));
+            ScanningAgent agent = new ScanningAgent(tb_agentName.Text, int.Parse(tb_visionRadius.Text), int.Parse(tb_speed.Text), int.Parse(tb_PositionX.Text), int.Parse(tb_PositionY.Text), (Blackboard)_Simulation.BlackBoard);
             _Simulation.AddAgent(tb_agentName.Text, agent);
             SetAgentTextBox();
         }
@@ -37,7 +37,7 @@ namespace ScanningRobotsMASapplication
         {
             List<string> agents = _Simulation.AgentList;
             string txt = "";
-            foreach(string agent in agents)
+            foreach (string agent in agents)
             {
                 txt += agent + "\n";
             }
@@ -48,7 +48,7 @@ namespace ScanningRobotsMASapplication
         {
             using (OpenFileDialog openFile = new OpenFileDialog())
             {
-                if(openFile.ShowDialog()==DialogResult.OK)
+                if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     LoadIamge(openFile.FileName);
                 }
@@ -63,11 +63,24 @@ namespace ScanningRobotsMASapplication
             MainCanvas.Image.Save(@"C:\alma.png");
             MainCanvas.Visible = true;
             pb_map.Visible = true;
-
+            _Simulation.Environment = _Environment;
             MainCanvas.Invalidate();
             pb_map.Invalidate();
             MainCanvas.Refresh();
             pb_map.Refresh();
+            _Environment.Refresh += RefreshScreen;
+        }
+
+        private void RefreshScreen(object sender,ScanningMAS.RefreshEventArgs e)
+        {
+            lock(e.Locker)
+            {
+                MainCanvas.Invalidate();
+            }
+        }
+        private void bt_StartSimulation_Click(object sender, EventArgs e)
+        {
+            _Simulation.StartSimulation();
         }
     }
 }

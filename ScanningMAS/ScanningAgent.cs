@@ -11,6 +11,23 @@ namespace ScanningMAS
 {
     public class ScanningAgent : IAgent
     {
+        public Point Position
+        {
+            get
+            {
+                return _Position;
+            }
+            set
+            {
+                _Blackboard.SetPosition(_Name, _Position);
+               string message= Communication.ComposeDeletePosition(_Position.X, _Position.Y);
+                _Position = value;
+                InvokeAction(message);
+                MarkingAction mark = new MarkingAction();
+                string markPosition = Communication.ComposeMarkPixel(_Position.X, _Position.Y, "blue");
+                mark.execute(this, markPosition);
+            }
+        }
         public IBlackboard Blackboard
         {
             get
@@ -22,21 +39,33 @@ namespace ScanningMAS
                 _Blackboard = (Blackboard)value;
             }
         }
-        public ScanningAgent(string name,int radius, int speed,int startX,int startY)
+        public ScanningAgent(string name,int radius, int speed,int startX,int startY, Blackboard blackboard)
         {
+            _Blackboard = blackboard;
             _Radius = radius;
             _Speed = speed;
             _Name = name;
-            _Position = new Point(startX, startY);
+            Position = new Point(startX, startY);
         }
         public event EventHandler<PerceptEventArgs> Percept;
         public event EventHandler<ActionEventArgs> Action;
 
         public void ProcessPerception(string perception)
         {
-            throw new NotImplementedException();
-        }
+            MarkingAction mark = new MarkingAction();
+            mark.execute(this, perception);
 
+            SteppingAction step = new SteppingAction(_Blackboard.GetPositions(), _Blackboard.GetEdges(), _Blackboard.GetBoundaries());
+            step.execute(this, "");
+        }
+        public void InvokeAction(string arg)
+        {
+            EventHandler<ActionEventArgs> handler = Action;
+            ActionEventArgs args = new ActionEventArgs();
+            args.ActionDescription = arg;
+            handler?.Invoke(this, args);
+
+        }
         public void StartAgent()
         {
            while(true)

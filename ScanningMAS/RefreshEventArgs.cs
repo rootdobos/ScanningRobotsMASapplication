@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiAgentSystem.Interfaces
+namespace ScanningMAS
 {
-    public interface IAction
+    public class RefreshEventArgs:EventArgs
     {
-        void execute(IAgent agent, string perception);
+        public object Locker;
     }
 }

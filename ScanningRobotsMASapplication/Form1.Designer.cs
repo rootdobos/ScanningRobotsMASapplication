@@ -427,6 +427,7 @@
             this.bt_StartSimulation.TabIndex = 0;
             this.bt_StartSimulation.Text = "Start";
             this.bt_StartSimulation.UseVisualStyleBackColor = true;
+            this.bt_StartSimulation.Click += new System.EventHandler(this.bt_StartSimulation_Click);
             // 
             // bt_StopSimulation
             // 
