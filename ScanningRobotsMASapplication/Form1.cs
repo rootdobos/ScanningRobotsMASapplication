@@ -32,9 +32,13 @@ namespace ScanningRobotsMASapplication
 
         private void bt_addAgent_Click(object sender, EventArgs e)
         {
-            ScanningAgent agent = new ScanningAgent(tb_agentName.Text, int.Parse(tb_visionRadius.Text), int.Parse(tb_speed.Text), int.Parse(tb_PositionX.Text), int.Parse(tb_PositionY.Text), (Blackboard)_Simulation.BlackBoard);
-            _Simulation.AddAgent(tb_agentName.Text, agent);
+            string name = tb_agentName.Text;
+            if (_Simulation.AgentsNames.Contains(tb_agentName.Text))
+                name = Guid.NewGuid().ToString();
+            ScanningAgent agent = new ScanningAgent(name, int.Parse(tb_visionRadius.Text), int.Parse(tb_speed.Text), int.Parse(tb_PositionX.Text), int.Parse(tb_PositionY.Text), (Blackboard)_Simulation.BlackBoard);
+            _Simulation.AddAgent(name, agent);
             SetAgentTextBox();
+
         }
         private void SetAgentTextBox()
         {
@@ -54,6 +58,7 @@ namespace ScanningRobotsMASapplication
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     LoadIamge(openFile.FileName);
+                   
                 }
             }
         }
@@ -63,14 +68,16 @@ namespace ScanningRobotsMASapplication
             _Environment = new ScanningMAS.Environment(map);
             MainCanvas.Image = _Environment.MarkedPoint;
             pb_map.Image = _Environment.Map;
-            MainCanvas.Image.Save(@"C:\alma.png");
             MainCanvas.Visible = true;
             pb_map.Visible = true;
             _Simulation.Environment = _Environment;
             MainCanvas.Invalidate();
             pb_map.Invalidate();
             MainCanvas.Refresh();
-            pb_map.Refresh();
+
+            label_ImageInfo.Text = path + " Size: " + map.Width + "x" + map.Height;
+
+           pb_map.Refresh();
             _Environment.Refresh += RefreshScreen;
         }
         private void UpdateWindow(Object source, ElapsedEventArgs e)

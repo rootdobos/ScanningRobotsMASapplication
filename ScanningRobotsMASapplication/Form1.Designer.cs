@@ -58,6 +58,7 @@
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.bt_StartSimulation = new System.Windows.Forms.Button();
             this.bt_StopSimulation = new System.Windows.Forms.Button();
+            this.label_ImageInfo = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainCanvas)).BeginInit();
@@ -155,6 +156,7 @@
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.pb_map, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel7, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.label_ImageInfo, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -441,6 +443,15 @@
             this.bt_StopSimulation.UseVisualStyleBackColor = true;
             this.bt_StopSimulation.Click += new System.EventHandler(this.bt_StopSimulation_Click);
             // 
+            // label_ImageInfo
+            // 
+            this.label_ImageInfo.AutoSize = true;
+            this.label_ImageInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label_ImageInfo.Location = new System.Drawing.Point(3, 40);
+            this.label_ImageInfo.Name = "label_ImageInfo";
+            this.label_ImageInfo.Size = new System.Drawing.Size(188, 70);
+            this.label_ImageInfo.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,6 +466,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MainCanvas)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
@@ -502,6 +514,7 @@
         private System.Windows.Forms.TextBox tb_PositionX;
         private System.Windows.Forms.TextBox tb_PositionY;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label_ImageInfo;
     }
 }
 

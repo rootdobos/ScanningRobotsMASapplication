@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ScanningMAS.Blackboard" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQgAAAAACQAAAAICAAoAIgAAAAAAgACAABAAAAAAAA=</HashCode>
+      <FileName>Blackboard.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.283" />
+  </Class>
+  <Class Name="ScanningMAS.Environment" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIEAAAAAEJBAAAAAAAEAABAAAAIACAAAAAAGAAAAAAA=</HashCode>
+      <FileName>Environment.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ScanningMAS.MarkingAction" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MarkingAction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ScanningMAS.RefreshEventArgs">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RefreshEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScanningMAS.ScanningAgent" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAQAQAAAAAAkBAACoIAAACAAAAAAAAIACgEAAAQ=</HashCode>
+      <FileName>ScanningAgent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ScanningMAS.SteppingAction" BaseTypeListCollapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAEQBAAACAEAAAQEAAAAAAQEAAAAAAgAAA=</HashCode>
+      <FileName>SteppingAction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
